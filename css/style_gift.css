@@ -1,0 +1,59 @@
+body {
+    font-family: "Pacifico", serif;
+    background-color: #ffdde1;
+    text-align: center;
+    padding: 20px;
+    overflow: hidden;
+}
+.container {
+    max-width: 400px;
+    margin: auto;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+.gift-img {
+    width: 100%;
+    border-radius: 10px;
+}
+.coupon {
+    margin-top: 20px;
+    padding: 15px;
+    color: #ff4d6d;
+    border: 2px dashed #ff4d6d;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: bold;
+    display: inline-block;
+    width: 80%;
+    text-align: center;
+    position: relative;
+}
+.coupon::after {
+    content: "✂";
+    position: absolute;
+    top: -20px;
+    right: 10px;
+    font-size: 20px;
+    color: #ff4d6d;
+}
+.instructions {
+    margin-top: 10px;
+    font-size: 16px;
+    color: #ff4d6d;
+    font-weight: bold;
+}
+.heart {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    background-color: rgba(255, 0, 0, 0.407);
+    clip-path: path("M12 4.248c-3.148-5.402-12-3.825-12 2.944 0 4.661 5.571 9.427 12 15.808 6.43-6.381 12-11.147 12-15.808 0-6.792-8.875-8.306-12-2.944z");
+    animation: floating 3s infinite ease-in-out;
+}
+@keyframes floating {
+    0% { transform: translateY(0); opacity: 1; }
+    100% { transform: translateY(-200px); opacity: 0; }
+}
