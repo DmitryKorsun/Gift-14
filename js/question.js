@@ -16,7 +16,7 @@ const questions = [
 ];
 let currentQuestion = 0;
 let lastAttempt = localStorage.getItem('lastAttempt') || 0;
-const cooldown = 5 * 60 * 1000;
+const cooldown = 2 * 60 * 1000;
 function loadQuestion() {
     if (Date.now() - lastAttempt < cooldown) {
         showRetryTimer();
@@ -68,11 +68,12 @@ function showRetryTimer() {
 function updateRetryTimer() {
     let remaining = cooldown - (Date.now() - lastAttempt);
     if(remaining <= 0){
+        document.getElementById("retry-timer").classList.add("hidden");
         loadQuestion();
     }else{
         let minutes = Math.floor(remaining / 60000);
         let seconds = Math.floor((remaining % 60000) / 1000);
-        document.getElementById("retry-timer").innerText = `Попробуй снова через ${minutes} минут ${seconds} секунд 💔`;
+        document.getElementById("retry-timer").innerText = `Попробуй снова через время ${minutes} : ${seconds} 💔`;
         setTimeout(updateRetryTimer, 1000);
     }
 }
